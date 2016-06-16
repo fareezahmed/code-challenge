@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ng-app="searchApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,35 +26,38 @@
     <![endif]-->
   </head>
 
-  <body data-ng-app="searchApp">
+  <body data-ng-controller="searchCtrl">
 
     <!-- Navigation -->
     <nav class="navbar" role="navigation">
         <div class="container">
             <a class="navbar-brand navbar-header" href="#">
-                <img src="http://placehold.it/150x50&text=Logo" alt="">
+                <img src="asserts\images\header-logo.png" alt="logo">
             </a>
-            <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button type="button" class="close" aria-label="Close" data-ng-click="searchClose()"><span aria-hidden="true">&times;</span></button>
         </div>
 
     </nav>
       
     <!-- Search Module -->
-    <main class="container" ng-controller="searchCtrl">
+    <main class="container" >
         <form class="form-inline" role="form" >
             <label class="control-label" for="searchPubliser">Publishers</label>
             <div class="right-inner-addon">
                 <button class="" type="button"><i class="glyphicon glyphicon-search"></i></button>
-                <input type="search" class="form-control" id="searchPubliser"  placeholder="Search Publishers" ng-model="keywords" ng-change="search()" />
+                <input type="search" class="form-control" id="searchPubliser"  placeholder="Search Publishers" data-ng-model="keywords" data-ng-change="search()" data-ng-blur="searchClose()"/>
 
             </div>
         </form>
-        <ul>
-            <li class="search-results" ng-repeat="site in sites | unique:'id'">
+        <ul data-ng-hide="isEmpty">
+            <li class="search-results" data-ng-repeat="site in sites | unique:'id'">
                 <a href="{{site.siteUrl}}">{{site.siteName}}</a>
                 <p>{{site.description}}</p>
             </li>
         </ul>
+        <div data-ng-show="isEmpty" class="no-result">
+            <p>We currently don't have any results for your search try another</p>
+        </div>
 
     </main>
     
@@ -62,7 +65,7 @@
     <footer>
         <div class="container">
             <a class="brand" href="#">
-                <img src="http://placehold.it/150x50&text=Logo" alt="">
+                <img src="asserts\images\footer-logo.png" alt="logo">
             </a>
             <hr>
             <ul class="nav nav-pills">

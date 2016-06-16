@@ -2,11 +2,12 @@
 
     var searchCtrl = function ($scope, dataFactory) {
         $scope.sites = null; 
-
+        $scope.isEmpty = false;
         $scope.search = function()  {
-        	var keywords = $scope.keywords;
+        	var sites = [],
+                keywords = $scope.keywords;
             if(keywords.indexOf(',') !== -1){
-        		var siteList = [], sites = [],
+        		var siteList = [],
         		keywordList = keywords.split(",");
         		for (var x=0,num=keywordList.length;x<num;x++) {
 		            if (keywordList[x] !== "") {
@@ -16,11 +17,20 @@
 					    });
 		            }
 		        }
-		        $scope.sites = sites;
             }else{
-            	$scope.sites = dataFactory.getSites(keywords);
+            	sites = dataFactory.getSites(keywords);
+            }
+            if(sites == ""){
+                $scope.isEmpty = true;
+            }else{
+                $scope.sites = sites; 
             }
             
+        }
+        
+        $scope.searchClose = function(){
+            $scope.sites = null; 
+            $scope.isEmpty = false;
         }
 
 
