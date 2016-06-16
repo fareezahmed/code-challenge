@@ -1,6 +1,40 @@
 body {
   background-color: #eee;
 }
+.ng-enter {
+  -webkit-transitionn: 0.75s;
+  -moz-transitionn: 0.75s;
+  -o-transitionn: 0.75s;
+  transition: 0.75s;
+  opacity: 0;
+}
+.ng-enter-stagger {
+  -webkit-transition-delay: 0.1s;
+  -moz-transition-delay: 0.1s;
+  -o-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+.ng-enter-active {
+  opacity: 1;
+}
+.ng-leave {
+  -webkit-transition: 0.75s;
+  -moz-transition: 0.75s;
+  -o-transition: 0.75s;
+  transition: 0.75s;
+  opacity: 1;
+}
+.ng-leave-active {
+  opacity: 0;
+}
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
 .navbar {
   background-color: #fff;
   margin: 0 2px 20px 4px;
@@ -44,12 +78,14 @@ footer .nav-pills > li > a:focus {
 footer .nav-pills li:last-child {
   border-right-width: 0;
 }
-@media screen and (max-width: 1024px) {
-  .footer ul.nav-pills {
+@media all and (max-width: 699px) {
+  footer .nav-pills {
     float: left;
     margin: 0 auto;
-    padding: 40px 2%;
     width: 96%;
+  }
+  footer .nav-pills > li {
+    margin: 10px;
   }
 }
 main .form-inline .form-control {

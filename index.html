@@ -7,7 +7,7 @@
 
     <meta name="description" content="Search List application; enables user to search and display list of results">
     <meta name="author" content="Fareez Ahmed">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="asserts/images/logo.ico">
 
     <title>Search List - Adslot</title>
 
@@ -32,7 +32,7 @@
     <nav class="navbar" role="navigation">
         <div class="container">
             <a class="navbar-brand navbar-header" href="#">
-                <img src="asserts\images\header-logo.png" alt="logo">
+                <img src="asserts/images/header-logo.png" alt="logo">
             </a>
             <button type="button" class="close" aria-label="Close" data-ng-click="searchClose()"><span aria-hidden="true">&times;</span></button>
         </div>
@@ -45,17 +45,17 @@
             <label class="control-label" for="searchPubliser">Publishers</label>
             <div class="right-inner-addon">
                 <button class="" type="button"><i class="glyphicon glyphicon-search"></i></button>
-                <input type="search" class="form-control" id="searchPubliser"  placeholder="Search Publishers" data-ng-model="keywords" data-ng-change="search()" data-ng-blur="searchClose()"/>
+                <input type="search" class="form-control" id="searchPubliser"  placeholder="Search Publishers" ng-click="slideToggle=! slideToggle" data-ng-model="keywords" data-ng-change="search()" data-ng-focus="searchClose()"/>
 
             </div>
         </form>
         <ul data-ng-hide="isEmpty">
-            <li class="search-results" data-ng-repeat="site in sites | unique:'id'">
+            <li class="search-results" data-ng-cloak data-ng-repeat="site in sites | unique:'id'">
                 <a href="{{site.siteUrl}}">{{site.siteName}}</a>
                 <p>{{site.description}}</p>
             </li>
         </ul>
-        <div data-ng-show="isEmpty" class="no-result">
+        <div data-ng-show="isEmpty" data-ng-cloak class="no-result">
             <p>We currently don't have any results for your search try another</p>
         </div>
 
@@ -65,7 +65,7 @@
     <footer>
         <div class="container">
             <a class="brand" href="#">
-                <img src="asserts\images\footer-logo.png" alt="logo">
+                <img src="asserts/images/footer-logo.png" alt="logo">
             </a>
             <hr>
             <ul class="nav nav-pills">
@@ -81,13 +81,18 @@
 
     <!-- jquery JavaScript  -->
     <script src="libs/jquery/jquery.min.js"></script>
+      
     <!-- Bootstrap core JavaScript  -->
     <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+      
     <!-- Angular JavaScript  -->
     <script src="libs/angular/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.0/angular-animate.min.js"></script>
+      
     <!-- Custom Angular JavaScript  -->
     <script src="js/app.js"></script>
     <script src="js/common/dataFactory.js"></script>
     <script src="js/modules/search/searchController.js"></script>
+      
   </body>
 </html>

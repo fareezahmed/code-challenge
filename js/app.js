@@ -1,3 +1,4 @@
 (function(){
-    var app = angular.module('searchApp',[]);
+    var app = angular.module('searchApp',['ngAnimate']);
+    
 }());
