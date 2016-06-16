@@ -2,30 +2,12 @@
     app = express();
     app.use(express.static(__dirname + '/'));
 
-    app.get('/sitesByKeyword/:keyword', function(req, res) {
-        var keyword = parseInt(req.params.keyword);
-        var data = {}, siteIds = [], i, j;
-        for (i=0,len=categories.length;i<len;i++) {
-            if (categories[i].description.indexOf("keyword") !== -1) {
-               siteIds.push(categories[i]);
-            }
-        }    
-
-        for (i=0,len=sites.length;i<len;i++) {
-            if (sites[i].siteName.indexOf("keyword") !== -1) {
-               data.push(sites[i]);
-            }else{
-                for(j=0,cnt=siteIds.length;j<cnt;j++){
-                    if(siteIds[j].id.contains(sites[i].categoryIds)){
-                        data.push(sites[i]);
-                    }
-                }
-            }
-        }
-
+    app.get('/sites', function(req, res) {
+            var data = [];
+            data.push(sites);
+            data.push(categories);
         res.json(data);
     });
-
 
     app.listen(8080);
 
