@@ -26,33 +26,45 @@
     <![endif]-->
   </head>
 
-  <body data-ng-app="searchApp  ">
+  <body data-ng-app="searchApp">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-fixed-top" role="navigation">
+    <nav class="navbar" role="navigation">
         <div class="container">
-
-            <a class="navbar-brand navbar-haeder" href="#">
-                    <img src="http://placehold.it/150x50&text=Logo" alt="">
+            <a class="navbar-brand navbar-header" href="#">
+                <img src="http://placehold.it/150x50&text=Logo" alt="">
             </a>
-
             <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
 
     </nav>
-    <div class="container">
-        <main>
-            <h1>Hello, world!</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
 
-        </main>
+    <main class="container">
+        <form class="form-inline" role="form">
+            <label class="control-label" for="searchPubliser">Publishers</label>
+            <div class="right-inner-addon">
+                <i class="icon-search"></i>
+                <input type="search" class="form-control" id="searchPubliser" placeholder="Search Publishers" />
+            </div>
+        </form>
+    </main>
 
-        <footer>
-            <p>&copy; 2015 Company, Inc.</p>
-        </footer>
-    </div> <!-- /container -->
-
+    <footer>
+        <div class="container">
+            <a class="brand" href="#">
+                <img src="http://placehold.it/150x50&text=Logo" alt="">
+            </a>
+            <hr>
+            <ul class="nav nav-pills">
+                <li><a href="/">© 2013 Adslot.</a></li>
+                <li><a href="#">Adslot Publisher</a></li>
+                <li><a href="#">Adslot Createy</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Payment Policy</a></li>
+            </ul>
+        </div>
+    </footer>
 
     <!-- jquery JavaScript  -->
     <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
