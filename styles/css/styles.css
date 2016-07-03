@@ -63,6 +63,7 @@ footer .nav-pills {
   width: 600px;
 }
 footer .nav-pills > li {
+  margin: 0;
   border-right: 1px solid #eee;
 }
 footer .nav-pills > li > a {
